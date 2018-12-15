@@ -29,15 +29,15 @@ Headlines.prototype.getNewsData = function () {
 
 Headlines.prototype.getListofNames = function () {
   return this.newsData
-  .map(brew => brew.headline)
-  .filter((beer, index, beers) => beers.indexOf(beer) === index);
+  .map(news => news.headline)
+  .filter((data, index, head) => head.indexOf(data) === index);
 };
 
 Headlines.prototype.getNews = function (name) {
 
- const selected  = this.summary;
+ const selected  = this.headline;
  // console.log(name);
-  return this.newsData.filter(brew => brew.summary === name);
+  return this.newsData.filter(news => news.headline === name);
 
 };
 
