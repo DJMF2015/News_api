@@ -12,15 +12,15 @@ NewsListView.prototype.render = function () {
   console.log(this.newsData);
 
   const newsTitle = document.createElement('h2');
-  newsTitle.textContent = this.newsData.headline;
+  newsTitle.textContent = this.newsData.open;
   container.appendChild(newsTitle);
 
   const source = document.createElement('p');
-  source.textContent = `Source: ${this.newsData.source}`;
+  source.textContent = `Source: ${this.newsData.symbol}`;
   container.appendChild(source);
 
   const descript = document.createElement('p');
-  descript.textContent = `${this.newsData.summary}`;
+  descript.textContent = `${this.newsData.companyName}`;
   container.appendChild(descript);
 
   // const image = document.createElement('img');
@@ -28,7 +28,7 @@ NewsListView.prototype.render = function () {
   // container.appendChild(image);
 
   const date = document.createElement('p');
-  date.textContent = `Date: ${this.newsData.datetime}`;
+  date.textContent = `Date: ${this.newsData.change}`;
   container.appendChild(date);
   console.log(descript);
   this.parent.appendChild(container);

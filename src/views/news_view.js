@@ -9,19 +9,18 @@ const NewsView = function (container) {
 NewsView.prototype.bindEvents = function () {
   PubSub.subscribe('News:news-ready', (event) => {
     const news = event.detail;
-    // console.log(news)
+     console.log(news)
     this.render(news);
   });
 }
 
 NewsView.prototype.render = function (newsData) {
   this.container.innerHTML = '';
-  const div = document.createElement('div');
-  this.container.appendChild(div);
 
   for (news of newsData) {
     const newsItem = new NewsListView(news, this.container)
     newsItem.render();
+    // return newsItem;
   }
 };
 

@@ -6,6 +6,9 @@ const NewsListView = require('./views/news_list_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('javascript loaded');
 
+  const news = new Headlines();
+  news.getNewsData();
+  news.bindEvents();
 
 
   const newsSelect =  document.querySelector('#news');
@@ -17,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   newsView.bindEvents();
 
 
-  const news = new Headlines();
-  news.getNewsData();
-  news.bindEvents();
 
 
 

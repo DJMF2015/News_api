@@ -8,16 +8,16 @@ const Headlines = function () {
 
 Headlines.prototype.bindEvents = function () {
   PubSub.subscribe('News:SelectView:news-selected', (event)  => {
-    const selectedNews = event.detail;
-    console.log(selectedNews);
-    const newsItemSelected = this.getNews(selectedNews);
-    console.log(newsItemSelected);
+    const primaryExchangeName = event.detail;
+    console.log(primaryExchangeName);
+    const newsItemSelected = this.getNews(primaryExchangeName);
+    //console.log(newsItemSelected);
     PubSub.publish('News:news-ready', newsItemSelected);
   });
 };
 ////https://newsapi.org/v2/everything?q=brexit&pageSize=50&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35
 Headlines.prototype.getNewsData = function () {
-  const requestHelper = new RequestHelper('https://api.iextrading.com/1.0/stock/aapl/news')
+  const requestHelper = new RequestHelper('https://api.iextrading.com/1.0/stock/market/collection/sector?collectionName=Health%20Care')
   requestHelper.get().then((headlines) => {
     this.newsData = headlines;
     // console.log(this.newsData);
@@ -29,16 +29,13 @@ Headlines.prototype.getNewsData = function () {
 
 Headlines.prototype.getListofNames = function () {
   return this.newsData
-  .map(brew => brew.headline)
-  .filter((beer, index, beers) => beers.indexOf(beer) === index);
+  .map(news => news.symbol)
+  .filter((head, index, summary) => summary.indexOf(head) === index);
 };
 
-Headlines.prototype.getNews = function (name) {
-
- const selected  = this.summary;
- // console.log(name);
-  return this.newsData.filter(brew => brew.summary === name);
+Headlines.prototype.getNews = function (primaryExchangeName) {
+  // const selected  = this.newsIndex;
+ return this.newsData.filter(dataItem => dataItem.primaryExchange === primaryExchangeName);
 
 };
-
 module.exports = Headlines;
