@@ -29,6 +29,7 @@ Headlines.prototype.getNewsData = function () {
 
 Headlines.prototype.getListofNames = function () {
   return this.newsData
+<<<<<<< HEAD
   .map(news => news.symbol)
   .filter((head, index, summary) => summary.indexOf(head) === index);
 };
@@ -36,6 +37,17 @@ Headlines.prototype.getListofNames = function () {
 Headlines.prototype.getNews = function (primaryExchangeName) {
   // const selected  = this.newsIndex;
  return this.newsData.filter(dataItem => dataItem.primaryExchange === primaryExchangeName);
+=======
+  .map(news => news.headline)
+  .filter((data, index, head) => head.indexOf(data) === index);
+};
+
+Headlines.prototype.getNews = function (name) {
+
+ const selected  = this.headline;
+ // console.log(name);
+  return this.newsData.filter(news => news.headline === name);
+>>>>>>> 2c4711da784dc2145521904004b31987e5d2a0db
 
 };
 module.exports = Headlines;
