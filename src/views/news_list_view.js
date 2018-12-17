@@ -12,24 +12,25 @@ NewsListView.prototype.render = function () {
   console.log(this.newsData);
 
   const newsTitle = document.createElement('h2');
-  newsTitle.textContent = this.newsData.open;
+  newsTitle.textContent = this.newsData.author;
   container.appendChild(newsTitle);
 
   const source = document.createElement('p');
-  source.textContent = `Source: ${this.newsData.symbol}`;
+  source.textContent = `Source: ${this.newsData.content}`;
   container.appendChild(source);
 
   const descript = document.createElement('p');
   descript.textContent = `${this.newsData.companyName}`;
   container.appendChild(descript);
 
-  // const image = document.createElement('img');
-  // image.src = `${this.newsData.urlToImage}`;
-  // container.appendChild(image);
-
   const date = document.createElement('p');
-  date.textContent = `Date: ${this.newsData.close}`;
+  date.textContent = `Date: ${this.newsData.description}`;
   container.appendChild(date);
+
+  const image = document.createElement('img');
+  image.src = `${this.newsData.urlToImage}`;
+  container.appendChild(image);
+
   console.log(descript);
   this.parent.appendChild(container);
 

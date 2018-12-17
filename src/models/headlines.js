@@ -17,9 +17,9 @@ Headlines.prototype.bindEvents = function () {
 };
 ////https://newsapi.org/v2/everything?q=brexit&pageSize=50&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35
 Headlines.prototype.getNewsData = function () {
-  const requestHelper = new RequestHelper('https://api.iextrading.com/1.0/stock/market/collection/sector?collectionName=Health%20Care')
-  requestHelper.get().then((headlines) => {
-    this.newsData = headlines;
+  const requestHelper = new RequestHelper('https://newsapi.org/v2/everything?q=brexit&pageSize=50&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
+  requestHelper.get().then((apiResult) => {
+    this.newsData = apiResult.articles;//this.newsData = apiResult.articles  //need to work through to resolve
     // console.log(this.newsData);
     const headline = this.getListofNames();
 
@@ -29,13 +29,13 @@ Headlines.prototype.getNewsData = function () {
 
 Headlines.prototype.getListofNames = function () {
   return this.newsData
-  .map(news => news.symbol)
+  .map(news => news.author)
   .filter((head, index, summary) => summary.indexOf(head) === index);
 };
 
 Headlines.prototype.getNews = function (primaryExchangeName) {
   // const selected  = this.newsIndex;
- return this.newsData.filter(dataItem => dataItem.primaryExchange === primaryExchangeName);
+ return this.newsData.filter(dataItem => dataItem.title === primaryExchangeName);
 
 };
 module.exports = Headlines;
