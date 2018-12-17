@@ -28,7 +28,7 @@ NewsListView.prototype.render = function () {
   // container.appendChild(image);
 
   const date = document.createElement('p');
-  date.textContent = `Date: ${this.newsData.change}`;
+    date.textContent = `Date: ${this.newsData.sector}`;
   container.appendChild(date);
   console.log(descript);
   this.parent.appendChild(container);

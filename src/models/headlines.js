@@ -19,7 +19,7 @@ Headlines.prototype.bindEvents = function () {
 Headlines.prototype.getNewsData = function () {
   const requestHelper = new RequestHelper('https://api.iextrading.com/1.0/stock/market/collection/sector?collectionName=Health%20Care')
   requestHelper.get().then((headlines) => {
-    this.newsData = headlines;
+    this.newsData = headlines; //this.newsData = apiResult.articles;
     // console.log(this.newsData);
     const headline = this.getListofNames();
 

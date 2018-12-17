@@ -20,7 +20,7 @@ SelectView.prototype.bindEvents = function () {
 
 SelectView.prototype.getElementsForDropdown = function (allData) {
   return allData
-  .map(dataItem => dataItem.primaryExchange)
+  .map(dataItem => dataItem.title)//needs to be same as filter from headlines filter method
   .filter((head, index, summary) => summary.indexOf(head) === index);
 };
 
