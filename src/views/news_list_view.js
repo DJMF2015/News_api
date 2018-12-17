@@ -24,11 +24,11 @@ NewsListView.prototype.render = function () {
   container.appendChild(descript);
 
   // const image = document.createElement('img');
-  // image.src = `${this.newsData.image}`;
+  // image.src = `${this.newsData.urlToImage}`;
   // container.appendChild(image);
 
   const date = document.createElement('p');
-    date.textContent = `Date: ${this.newsData.sector}`;
+  date.textContent = `Date: ${this.newsData.close}`;
   container.appendChild(date);
   console.log(descript);
   this.parent.appendChild(container);
