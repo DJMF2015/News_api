@@ -4,7 +4,7 @@ const ChartHelper = function(words) {
   for(word of words) {
     wordData.push({
       name: word.title
-      //y: (word.latestPrice * word.amount)
+   
     });
   }
 
