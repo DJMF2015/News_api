@@ -1,5 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
-
+//constructor
 const SelectView = function (element) {
   this.element = element;
 };
@@ -9,7 +9,7 @@ SelectView.prototype.bindEvents = function () {
     const news = event.detail;
     const dropDownItems = this.getElementsForDropdown(news);
     this.populate(dropDownItems);
-  });// check
+  });
 
   this.element.addEventListener('change', (event)=> {
     const selected = event.target.value;

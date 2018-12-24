@@ -20,7 +20,6 @@ NewsView.prototype.render = function (newsData) {
   for (news of newsData) {
     const newsItem = new NewsListView(news, this.container)
     newsItem.render();
-    // return newsItem;
   }
 };
 

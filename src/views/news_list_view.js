@@ -19,17 +19,17 @@ NewsListView.prototype.render = function () {
   descript.textContent = `${this.newsData.description}`;
   container.appendChild(descript);
 
-  const author = document.createElement('p');
-  author.textContent = `Author: ${this.newsData.author}`;
-  container.appendChild(author);
+  // const author = document.createElement('p');
+  // author.textContent = `Author: ${this.newsData.author}`;
+  // container.appendChild(author);
 
   const source = document.createElement('p');
   source.textContent = `Source: ${this.newsData.source.name}`;
   container.appendChild(source);
 
-  const published = document.createElement('p');
-  published.textContent = `Published: ${this.newsData.publishedAt}`;
-  container.appendChild(published)
+  const a = document.createElement('a');
+  a.textContent =  `${this.newsData.url}`;
+  container.appendChild(a);
 
   const image = document.createElement('img');
   image.src = `${this.newsData.urlToImage}`;

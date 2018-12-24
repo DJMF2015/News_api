@@ -16,8 +16,8 @@ Headlines.prototype.bindEvents = function () {
   });
 };
 
-Headlines.prototype.getNewsData = function () {
-  const requestHelper = new RequestHelper('https://newsapi.org/v2/everything?q=brexit&pageSize=20&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
+Headlines.prototype.getNewsData = function () {//https://newsapi.org/v2/top-headlines?sources=business-insider-uk&pageSize=20&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35
+  const requestHelper = new RequestHelper('https://newsapi.org/v2/top-headlines?sources=the-economist&pageSize=15&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
   requestHelper.get().then((apiResult) => {
     this.newsData = apiResult.articles;//this.newsData = apiResult.articles  //need to work through to resolve
     // console.log(this.newsData);
@@ -38,4 +38,5 @@ Headlines.prototype.getNews = function (primaryExchangeName) {
  return this.newsData.filter(dataItem => dataItem.title === primaryExchangeName);
 
 };
+
 module.exports = Headlines;
