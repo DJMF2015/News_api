@@ -1,7 +1,7 @@
 const Headlines = require('./models/headlines.js');
 const SelectView = require('./views/select_view.js');
 const NewsView = require('./views/news_view.js');
-const WordChart = require('./views/word_chart.js');
+const PieChart = require('./views/pie_view.js');
 const NewsListView = require('./views/news_list_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   news.getNewsData();
   news.bindEvents();
 
-
   const newsSelect =  document.querySelector('#news');
   const newsSelectView = new SelectView(newsSelect);
   newsSelectView.bindEvents();
@@ -20,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsView = new NewsView(newsContainer)
   newsView.bindEvents();
 
-  const appContainer = document.querySelector('.app_container');
-  const wordChart = new WordChart(appContainer);
+  const appContainer = document.querySelector('#app_container');
+  const wordChart = new PieChart(appContainer);
   wordChart.bindEvents();
 
 
