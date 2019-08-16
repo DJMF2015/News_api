@@ -13,14 +13,14 @@ SelectView.prototype.bindEvents = function () {
 
   this.element.addEventListener('change', (event)=> {
     const selected = event.target.value;
-    console.log(selected);
+  //  console.log(selected);
     PubSub.publish('News:SelectView:news-selected', selected);
   })
 };
 
 SelectView.prototype.getElementsForDropdown = function (allData) {
   return allData
-  .map(dataItem => dataItem.title)//needs to be same as filter from headlines filter method
+  .map(dataItem => dataItem.title)
   .filter((head, index, summary) => summary.indexOf(head) === index);
 };
 

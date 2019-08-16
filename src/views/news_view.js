@@ -12,9 +12,9 @@ NewsView.prototype.bindEvents = function () {
   PubSub.subscribe('News:news-ready', (event) => {
     const news = event.detail;
 
-     console.log(news)
+    console.log(news)
     this.render(news);
-    this.renderPieChart(news);
+    //this.renderPieChart(news);
   });
 }
 
@@ -28,15 +28,15 @@ NewsView.prototype.render = function (newsData) {
   }
 };
 
-NewsView.prototype.renderPieChart = function(words) {
-  this.container.innerHTML = '';
-  //const appContainer = document.querySelector('.app_container');
-  const dataForCloud = ChartHelper(words);
-  const chartContainer = document.createElement('div');
-  chartContainer.className = 'pie-chart';
-  const pieChart = new PieChart('NewsCloud', dataForCloud, chartContainer);
-  this.container.appendChild(chartContainer);
-};
+// NewsView.prototype.renderPieChart = function(words) {
+//   this.container.innerHTML = '';
+//   //const appContainer = document.querySelector('.app_container');
+//   const dataForCloud = ChartHelper(words);
+//   const chartContainer = document.createElement('div');
+//   chartContainer.className = 'pie-chart';
+//   const pieChart = new PieChart('NewsCloud', dataForCloud, chartContainer);
+//   this.container.appendChild(chartContainer);
+// };
 
 NewsView.prototype.createNewsListItem = function (data) {
   const newsListView = new NewsListView();
