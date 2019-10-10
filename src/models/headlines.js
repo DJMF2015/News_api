@@ -11,16 +11,16 @@ Headlines.prototype.bindEvents = function () {
     const primaryExchangeName = event.detail;
     console.log(primaryExchangeName);
     const newsItemSelected = this.getNews(primaryExchangeName);
-    //console.log(newsItemSelected);
+    // console.log(newsItemSelected);
     PubSub.publish('News:news-ready', newsItemSelected);
   });
 };
 
 Headlines.prototype.getNewsData = function () {
-  const requestHelper = new RequestHelper('https://newsapi.org/v2/top-headlines?sources=business-insider-uk&pageSize=15&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
+  const requestHelper = new RequestHelper('https://newsapi.org/v2/everything?q=brexit&pageSize=10&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
   requestHelper.get().then((apiResult) => {
     this.newsData = apiResult.articles;
-    // console.log(this.newsData);
+    console.log(this.newsData);
     const headline = this.getListofNames();
 
     PubSub.publish('News:news-ready', this.newsData);
@@ -29,13 +29,14 @@ Headlines.prototype.getNewsData = function () {
 
 Headlines.prototype.getListofNames = function () {
   return this.newsData
-  .map(news => news.author)
+  .map(news => news.name)
   .filter((head, index, summary) => summary.indexOf(head) === index);
 };
 
 Headlines.prototype.getNews = function (primaryExchangeName) {
-
-  return this.newsData.filter(dataItem => dataItem.title === primaryExchangeName);
+  const result = this.newsData.filter(dataItem => dataItem.title === primaryExchangeName);
+  console.log(result);
+  return result;
 
 };
 
