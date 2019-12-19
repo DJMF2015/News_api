@@ -27,9 +27,11 @@ NewsListView.prototype.render = function () {
   source.textContent = `Source: ${this.newsData.source.name}`;
   container.appendChild(source);
 
-  const a = document.createElement('a');
-  a.textContent =  `${this.newsData.url}`;
-  container.appendChild(a);
+  const url = document.createElement('a');
+  url.textContent =  ` ${this.newsData.url}`;
+  url.href = this.newsData.url;
+  url.target = '_blank';
+  container.appendChild(url);
 
   const image = document.createElement('img');
   image.src = `${this.newsData.urlToImage}`;

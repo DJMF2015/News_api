@@ -17,7 +17,7 @@ Headlines.prototype.bindEvents = function () {
 };
 
 Headlines.prototype.getNewsData = function () {
-  const requestHelper = new RequestHelper('https://newsapi.org/v2/everything?q=brexit&pageSize=10&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
+  const requestHelper = new RequestHelper('https://newsapi.org/v2/everything?q=unitedkingdom&pageSize=10&apiKey=b3c0e6f0f90b46c4aa2d52cf03a2ce35')
   requestHelper.get().then((apiResult) => {
     this.newsData = apiResult.articles;
     console.log(this.newsData);
