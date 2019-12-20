@@ -7,14 +7,20 @@
 
   <script src="js/bundle.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+  <script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
 </head>
 <body>
   <h2>Latest News Headlines...</h2>
-  <label for="news">Select Headline:</label>
-  <select id="news" name="news">
-    <option selected disabled></option>
-  </select>
+  <ul class='menu'>
+    <li class='dropdown'><span>Latest... ▾</span>
+      <label for="news">Select Headline:</label>
+      <ul class='features-menu'>
+        <select id="news" name="news">
+          <option selected disabled></option>
+        </select>
+      </ul>
+    </li>
+  </ul>
 
   <div id="news-container"></div>
   <br>
